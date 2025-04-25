@@ -20,15 +20,19 @@
 
 ## Требования
 
-- Qt 5.12 или выше
-- C++11 совместимый компилятор
+- Qt 6 или выше
+- C++17 совместимый компилятор
 - CMake 3.5 или выше
 
 ## Сборка и установка
 
-### Linux
+### Ubuntu
 
 ```bash
+# Установка зависимостей
+sudo apt update
+sudo apt install -y build-essential cmake qt6-base-dev qt6-tools-dev qt6-tools-dev-tools libqt6charts6-dev
+
 # Клонирование репозитория
 git clone https://github.com/yourusername/nm_lab_spline.git
 cd nm_lab_spline
@@ -46,10 +50,47 @@ make
 
 ### Windows (с использованием Qt Creator)
 
-1. Откройте проект в Qt Creator (файл `CMakeLists.txt`)
-2. Настройте комплект сборки (Kit)
-3. Нажмите "Сборка" (Ctrl+B)
-4. Запустите приложение (Ctrl+R)
+1. Установите [Qt 6](https://www.qt.io/download-qt-installer) и убедитесь, что установлены компоненты `Qt 6.5+`, `CMake`, и `MinGW` (или другой совместимый компилятор).
+2. Клонируйте репозиторий с помощью Git Bash:
+   ```bash
+   git clone https://github.com/yourusername/nm_lab_spline.git
+   ```
+3. Откройте проект в Qt Creator (файл `CMakeLists.txt`).
+4. Настройте комплект сборки (Kit), выбрав Qt 6 и соответствующий компилятор.
+5. Нажмите "Сборка" (Ctrl+B).
+6. Запустите приложение (Ctrl+R).
+
+### Windows (с использованием MSYS2)
+
+1. Установите [MSYS2](https://www.msys2.org/).
+2. Откройте MSYS2 и обновите пакеты:
+   ```bash
+   pacman -Syu
+   pacman -Syu # Повторите команду после перезапуска MSYS2, если потребуется
+   ```
+3. Установите необходимые пакеты:
+   ```bash
+   pacman -S --needed base-devel mingw-w64-x86_64-toolchain mingw-w64-x86_64-qt6 mingw-w64-x86_64-cmake
+   ```
+4. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/yourusername/nm_lab_spline.git
+   cd nm_lab_spline
+   ```
+5. Создайте директорию для сборки и выполните сборку:
+   ```bash
+   mkdir build && cd build
+   cmake -G "MinGW Makefiles" ..
+   mingw32-make
+   ```
+6. Запустите приложение:
+   ```bash
+   ./spl.exe
+   ```
+
+## Превью
+
+![Превью приложения](imgs/prewiev.png)
 
 ## Использование
 
@@ -76,7 +117,3 @@ make
 ## Лицензия
 
 [MIT](https://opensource.org/licenses/MIT)
-
-## Автор
-
-Ваше Имя - [@yourusername](https://github.com/yourusername)
