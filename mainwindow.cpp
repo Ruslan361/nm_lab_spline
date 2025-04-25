@@ -314,8 +314,8 @@ void MainWindow::createResultsPanel() {
     
     // Создаем группу для информации о сетке с компактным вертикальным дизайном
     QGroupBox* gridInfoBox = new QGroupBox("Информация о сетке", this);
-    gridInfoBox->setMaximumHeight(150); // Увеличиваем высоту для вертикального размещения
-    gridInfoBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    //gridInfoBox->setMaximumHeight(150); // Увеличиваем высоту для вертикального размещения
+    //gridInfoBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     QVBoxLayout* gridInfoLayout = new QVBoxLayout(gridInfoBox); // Вертикальный макет
     gridInfoLayout->setSpacing(2); // Уменьшаем отступы
     
@@ -341,8 +341,8 @@ void MainWindow::createResultsPanel() {
     
     // Создаем группу для информации о функции
     QGroupBox* funcInfoBox = new QGroupBox("Функция", this);
-    funcInfoBox->setMaximumHeight(80);
-    funcInfoBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
+    //funcInfoBox->setMaximumHeight(80);
+    //funcInfoBox->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Maximum);
     QVBoxLayout* funcInfoLayout = new QVBoxLayout(funcInfoBox);
     funcInfoLayout->setSpacing(2);
     
@@ -1318,7 +1318,7 @@ void MainWindow::updateInfoLabels() {
     QString funcName = functionComboBox->currentText();
     
     // Информация о сетке сплайна
-    splineGridInfoLabel->setText(QString("Сетка сплайна: [%1, %2], n = %3")
+    splineGridInfoLabel->setText(QString("Сетка сплайна: [%1, %2]\n, n = %3")
                                   .arg(a, 0, 'g', 4)
                                   .arg(b, 0, 'g', 4)
                                   .arg(n));
