@@ -2,7 +2,7 @@
 
 enum MODE
 {
-    TEST, MAIN1, OSC
+    TEST, MAIN1, MAIN2, MAIN3, OSC // Added MAIN2, MAIN3
 };
 
 class Problem {

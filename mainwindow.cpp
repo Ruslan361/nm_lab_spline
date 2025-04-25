@@ -196,12 +196,13 @@ void MainWindow::createControlPanel() {
     QVBoxLayout* functionLayout = new QVBoxLayout(functionGroupBox);
 
     functionComboBox = new QComboBox(this);
-    functionComboBox->addItem("Тестовая функция: x^2", QVariant::fromValue(TEST));
-    functionComboBox->addItem("sqrt(|x^2-1|)/x", QVariant::fromValue(MAIN1));
-    functionComboBox->addItem("(1+x^2)^(1/3)", QVariant::fromValue(MAIN1));
-    functionComboBox->addItem("sin(x+1)/(x+1)", QVariant::fromValue(MAIN1));
-    functionComboBox->addItem("log(1+x)/(1+x)", QVariant::fromValue(MAIN1));
-    functionComboBox->addItem("Осциллирующая: sin(1/x)", QVariant::fromValue(OSC));
+    // --- Update function list ---
+    functionComboBox->addItem("Тестовая функция", QVariant::fromValue(TEST));
+    functionComboBox->addItem("x * sin(x) / 3", QVariant::fromValue(MAIN1));
+    functionComboBox->addItem("sqrt(1 + x^4)", QVariant::fromValue(MAIN2));
+    functionComboBox->addItem("sqrt(exp(x) - 1)", QVariant::fromValue(MAIN3));
+    functionComboBox->addItem("Осциллирующая", QVariant::fromValue(OSC));
+    // --- End update ---
     functionLayout->addWidget(functionComboBox);
 
     // Создаем группу с граничными условиями
@@ -217,7 +218,7 @@ void MainWindow::createControlPanel() {
     // Тип граничных условий
     borderConditionComboBox = new QComboBox(this);
     borderConditionComboBox->addItem("Естественный сплайн (S''=0)", QVariant::fromValue(NATURAL));
-    borderConditionComboBox->addItem("Заданные первые производные S'(a), S'(b)", QVariant::fromValue(DERIVATIVE_BOUNDS));
+    //borderConditionComboBox->addItem("Заданные первые производные S'(a), S'(b)", QVariant::fromValue(DERIVATIVE_BOUNDS));
     borderConditionComboBox->addItem("Заданные вторые производные S''(a), S''(b)", QVariant::fromValue(SECOND_DERIVATIVE_BOUNDS));
     boundaryLayout->addWidget(borderConditionComboBox);
 

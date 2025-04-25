@@ -5,13 +5,17 @@ double TestFunc(double x) {
         return x * x * x + 3.0 * x * x;
     else if (x >= 0.0 && x <= 1.0)
         return -x * x * x + 3.0 * x * x;
+    // Add a default return for safety
+    return 0.0;
 }
 
 double dTF(double x) {
     if (x >= -1.0 && x <= 0.0)
         return 3.0*x*x + 6*x;
     else if (x >= 0.0 && x <= 1.0)
-        return -3.0*x * x + 3.0 * x;
+        return -3.0*x * x + 6.0 * x;
+    // Add a default return for safety
+    return 0.0;
 }
 
 double d2TF(double x) {
@@ -19,8 +23,9 @@ double d2TF(double x) {
         return 6.0 * x + 6.0;
     else if (x >= 0.0 && x <= 1.0)
         return -6.0 * x + 6.0;
+    // Add a default return for safety
+    return 0.0;
 }
-
 
 double MainFunc1(double x) {
     return x * std::sin(x) / 3.0;
@@ -33,7 +38,6 @@ double dF1(double x) {
 double d2F1(double x) {
     return (2.0 * std::cos(x) - x * std::sin(x)) / 3.0;
 }
-
 
 double MainFunc2(double x) {
     return std::sqrt(1.0 + x * x * x * x);
