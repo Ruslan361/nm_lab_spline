@@ -19,8 +19,10 @@ public:
 
     double operator()(double x);
 
+    // Первая производная сплайна
     double ds(double x);
 
+    // Вторая производная сплайна
     double d2s(double x);
 };
 
